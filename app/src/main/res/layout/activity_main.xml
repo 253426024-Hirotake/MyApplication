@@ -7,13 +7,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="こんにちは！"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="こんにちは！"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="96dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="24dp"
+        android:text="Switch"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        tools:layout_editor_absoluteY="341dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
