@@ -29,34 +29,40 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-//        binding.buttonChange.setOnClickListener(view -> {
-//            var text = binding.editTextText.getText().toString();
-//            binding.textView.setText(text);
-//        });
+        binding.buttonChange.setOnClickListener(view -> {
+            var text = binding.editTextText.getText().toString();
+            binding.textView.setText(text);
+        });
 
         prefDataStore = PrefDataStore.getInstance(this);
-        prefDataStore.getString("name").ifPresent(name -> binding.textView.setText(name));
+//        prefDataStore.getString("name").ifPresent(name -> binding.textView.setText(name));
         binding.buttonSave.setOnClickListener(view -> {
             var text = binding.editTextText.getText().toString();
             prefDataStore.setString("name", text);
         });
 
-        binding.editTextText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // テキストが更新される前に呼ばれる
-            }
+//        binding.editTextText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                // テキストが更新される前に呼ばれる
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                // 文字を1つ入力された時に呼ばれる
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                // テキストが更新された後に呼ばれる
+//                binding.textView.setText(s.toString());
+//            }
+//        });
+    }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // 文字を1つ入力された時に呼ばれる
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // テキストが更新された後に呼ばれる
-                binding.textView.setText(s.toString());
-            }
-        });
+    @Override
+    protected void onStart() {
+        super.onStart();
+        prefDataStore.getString("name").ifPresent(name -> binding.textView.setText(name));
     }
 }
